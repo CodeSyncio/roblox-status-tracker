@@ -1,0 +1,8 @@
+1
+False
+880282770
+True
+#line 1 = time between requests(seconds)
+#line 2 = notification sound or not (True or False)
+#line 3 = id to track (userid)
+#line 4 = enable or disable logging (True or False)
