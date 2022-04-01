@@ -28,29 +28,29 @@ while 1 != 3:
     roblox_api_requesttext = roblox_api_requestdata.text
     roblox_api_requestjson = json.loads(roblox_api_requesttext)
     online_status = roblox_api_requestjson['IsOnline']
-    online_level = roblox_api_requestjson['LocationType']
+    PresenceType = roblox_api_requestjson['LocationType']
     now = datetime.now()
     current_time = now.strftime("%H:%M:%S")
     todaydate = date.today()
-    if online_level == 4 and online_status==True:
+    if PresenceType == 2 and online_status==True:
         logstatus = 'is <<<ONLINE>>>'
     else:
         logstatus = 'is ---OFFLINE---'
     if logsetting == 'True':
-        file = open('log.txt','a')
+        file = open('log_'+ userid+'.txt','a')
         file.write(str(todaydate) + '   '+str(current_time)+'   '+str(userid)+ ' '+ str(logstatus)+ '\n')
         file.close
     else:
         pass
     
-    if online_level == 4 and online_status==True:
+    if PresenceType == 2 and online_status==True:
         print('roblox id ['+userid+'] is ONLINE with username ['+username+']')
         if notifsettingstatus == 'True':
             winsound.Beep(440, 250)
         else:
             pass
     else:
-        print('roblox id ['+userid+'] is NOT ONLINE (username = '+username+')')    
+        print('roblox id ['+userid+'] is NOT ONLINE (username = '+username+') (PresenceType = '+PresenceType+')')    
     sleep(int(reqinterval))
         
     
