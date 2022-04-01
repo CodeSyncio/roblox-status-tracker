@@ -44,13 +44,13 @@ while 1 != 3:
         pass
     
     if PresenceType == 2 and online_status==True:
-        print('roblox id ['+userid+'] is ONLINE with username ['+username+']')
+        print('roblox id ['+userid+'] is ONLINE with username ['+str(username)+']')
         if notifsettingstatus == 'True':
             winsound.Beep(440, 250)
         else:
             pass
     else:
-        print('roblox id ['+userid+'] is NOT ONLINE (username = '+username+') (PresenceType = '+PresenceType+')')    
+        print('roblox id ['+userid+'] is NOT ONLINE (username = '+str(username)+') (PresenceType = '+str(PresenceType)+')')    
     sleep(int(reqinterval))
         
     
