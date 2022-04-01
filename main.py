@@ -35,7 +35,7 @@ while 1 != 3:
     if PresenceType == 2 and online_status==True:
         logstatus = 'is <<<ONLINE>>>'
     else:
-        logstatus = 'is ---OFFLINE---'
+        logstatus = ('is ---OFFLINE---   (PresenceType = '+str(PresenceType)+')')
     if logsetting == 'True':
         file = open('log_'+ userid+'.txt','a')
         file.write(str(todaydate) + '   '+str(current_time)+'   '+str(userid)+ ' '+ str(logstatus)+ '\n')
