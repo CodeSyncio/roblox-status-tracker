@@ -51,6 +51,6 @@ while 1 != 3:
             pass
     else:
         print('roblox id ['+userid+'] is NOT ONLINE (username = '+str(username)+') (PresenceType = '+str(PresenceType)+')')    
-    sleep(int(reqinterval))
+    sleep(float(reqinterval))
         
     
