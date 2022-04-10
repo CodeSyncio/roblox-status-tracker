@@ -11,7 +11,12 @@ def cls():
     os.system('cls' if os.name=='nt' else 'clear')
 
 curdir = os.getcwd()
-
+if os.path.exists('config.txt'):
+    print('config was found!')
+else:
+    print('The "config.txt file could not be found. please check if it is named correctly.')
+    sleep (5)
+    quit()
 userid = linecache.getline('config.txt', 3).strip()   #strip is needed because of diz stupid newline at end of getline lines
 notifsettingstatus = linecache.getline('config.txt', 2).strip()
 reqinterval =linecache.getline('config.txt', 1).strip()
