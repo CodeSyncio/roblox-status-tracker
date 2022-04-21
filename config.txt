@@ -3,8 +3,12 @@ False
 IdHere
 True
 False
+DiscordWebhookLinkHere
+True
 #line 1 = time between requests(seconds)
 #line 2 = notification sound or not (True or False)
 #line 3 = id to track (userid)
 #line 4 = enable or disable logging (True or False)
 #line 5 = enable or disable minified logging mode (True or False)
+#line 6 = link to discord webhook if you want to
+#line 7 = enable or disable discord webhook

@@ -22,6 +22,8 @@ notifsettingstatus = linecache.getline('config.txt', 2).strip()
 reqinterval =linecache.getline('config.txt', 1).strip()
 logsetting = linecache.getline('config.txt', 4).strip()
 Minsetting = linecache.getline('config.txt', 5).strip()
+WebHookLink = linecache.getline('config.txt', 6).strip()
+WebHookSetting = linecache.getline('config.txt', 7).strip()
 
 roblox_api_statusresponse=requests.get('https://api.roblox.com/users/'+userid+'/')
 roblox_api_statustext = roblox_api_statusresponse.text
@@ -39,6 +41,25 @@ else:
     print('Folder "logs" has been created. continuing... (If you see this message on next start, please make an issue on github)')
     sleep(3)
     cls()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 while 1 != 3:
     cls()
