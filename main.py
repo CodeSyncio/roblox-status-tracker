@@ -41,8 +41,8 @@ else:
     print('Folder "logs" has been created. continuing... (If you see this message on next start, please make an issue on github)')
     sleep(3)
     cls()
-
-
+webhooksendstatus = 0 
+diswebholdstatus = 0
 
 
 
@@ -73,18 +73,58 @@ while 1 != 3:
     todaydate = date.today()
     if PresenceType == 2 and online_status==True:
         logstatus = 'is   <<<ONLINE>>>'
+        diswebhcurstatus = 1
     else:
         logstatus = ('is   ---OFFLINE---   (PresenceType = '+str(PresenceType)+')')
+        diswebhcurstatus = 0
+    messagge =('Date: '+ str(todaydate) + '   '+'Time: '+str(current_time)+'   '+'Id: '+str(userid)+ ' '+ str(logstatus)+ '\n')
+    msg = messagge
     if logsetting == 'True':
         file = open(curdir+'/logs/'+'log_'+ userid+'_'+username+'.txt','a')
         if Minsetting == 'True':
             file.write(str(todaydate) + '   '+str(current_time)+'   '+str(userid)+ ' '+ str(logstatus)+ '\n')
             file.close
         else:
-            file.write('Date: '+ str(todaydate) + '   '+'Time: '+str(current_time)+'   '+'Id: '+str(userid)+ ' '+ str(logstatus)+ '\n')
+            file.write(messagge)
             file.close
     else:
         pass
+    
+    if WebHookSetting == 'True':
+            
+            if diswebhcurstatus !=  diswebholdstatus:
+
+            
+                url = WebHookLink
+            
+                usrname = 'roblox_statustracker_bot'
+
+                embed = {
+                "description": "",
+                "title": ""
+                }
+
+                data = {
+                "content": messagge,
+                "username": usrname,
+    
+                }
+
+                headers = {
+                "Content-Type": "application/json"
+                }
+            
+                result = requests.post(url, json=data, headers=headers)
+                if 200 <= result.status_code < 300:
+                    pass
+                
+                else:
+                    print(f"Not sent with {result.status_code}, response:\n{result.json()}")
+                    
+                diswebholdstatus = diswebhcurstatus
+    
+    
+    
     
     if PresenceType == 2 and online_status==True:
         print('roblox id ['+userid+'] is ONLINE with username ['+str(username)+']')
@@ -92,8 +132,13 @@ while 1 != 3:
             winsound.Beep(440, 250)
         else:
             pass
+        
+       
+
+            
     else:
-        print('roblox id ['+userid+'] is NOT ONLINE (username = '+str(username)+') (PresenceType = '+str(PresenceType)+')')    
+        
+        print('roblox id ['+userid+'] is NOT ONLINE (username = '+str(username)+') (PresenceType = '+str(PresenceType)+')')
     sleep(float(reqinterval))
         
     
